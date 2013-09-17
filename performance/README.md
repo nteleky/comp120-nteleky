@@ -73,7 +73,7 @@ from the cache and which were being grabbed from a server. After adding the HTML
 * YSlow!
 * Chrome Developer Tools
 
-***What has been improved ***
+***What has been improved***
 
 After making these improvements, I received the following grade on YSlow!:
 
@@ -104,7 +104,7 @@ Chome Dev Tools indicated the following load times:
 * game.js -- scripe -- 4ms latency
 * frogger_sprites.png -- 0ms
 
-***Are there remaining potential performance issues? ***
+***Are there remaining potential performance issues?***
 
 There are. This could be further improved by improving the server side javascript code, changing
 how the game interacts with the scorecenter, and trying to save memory when playing. These
