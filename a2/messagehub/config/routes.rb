@@ -2,7 +2,7 @@ Messagehub::Application.routes.draw do
 
   get '/messages(.:format)' => 'messages#index', :format => true
   post '/messages(.:format)' => 'messages#create', :format => true
-  get '/messages/:id(.:format)' => 'messages#show'
+  get "/messages/:id(.:format)" => "messages#show"
   root :to => 'messages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
