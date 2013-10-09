@@ -1,6 +1,5 @@
-
-<p>
-	App: <%= @message.app_id %> <br>
-	Content: <%= @message.content %> <br>
-	Username: <%= @message.username %> <br>
-</p>
+	<div id="message" class="well">
+		<div id="content"><%= @message.content %></div>
+		<div id="info"><span><%= @message.username %>   </span>
+		<%= time_ago_in_words(@message.created_at) %> ago</div>
+	</div>

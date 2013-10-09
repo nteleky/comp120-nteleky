@@ -1,13 +1,7 @@
-<h1 class="center">Messagehub</h1>
-<h3 class="center">By Nick Teleky </h3>
-<p><%= App.find(:all) %></p>
-<p><%= Message.find(:all) %></p>
-
-
 <% @messages.each do |m| %>
 	<div id="message" class="well">
 		<div id="content"><%= m.content %></div>
-		<div id="info"><%= m.username %>
-		<%= time_ago_in_words(m.created_at) %> </div>
+		<div id="info"><span><%= m.username %>   </span>
+		<%= time_ago_in_words(m.created_at) %> ago</div>
 	</div>
 <% end %>

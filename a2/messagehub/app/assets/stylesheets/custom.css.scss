@@ -23,4 +23,11 @@ textarea {
 #message {
 	background: #4B0082;
 	color: white;
+	#info {
+		color: #ff69b4;
+		text-align: right;
+		span {
+			font-weight:bold;
+		}
+	}
 }
