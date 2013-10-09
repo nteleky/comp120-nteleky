@@ -1,22 +1,22 @@
 class MessagesController < ApplicationController
+
   def index
+  	@messages = Message.all.includes(:app)
   end
 
   def create
   	@message = Message.new(message_params)
-  	if @message.save
-  		redirect_to @message
-  	else
-  		render 'index'
+
+  	@message.save
   end
+
 
   def show
   end
-  private
 
+  private
   def message_params
-  	params.require(:Message).permit(:app_id, :content, :username)
+  	params.require(:message).permit(:app_id, :content, :username)
   end
 
-end
 end
