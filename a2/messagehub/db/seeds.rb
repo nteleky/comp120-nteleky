@@ -11,3 +11,6 @@ App.create(app_title: 'ios', description: 'From iOS app', active: true)
 App.create(app_title: 'android', description: 'From Android app', active: true)
 App.create(app_title: 'web', description: 'From default web app', active: true)
 App.create(app_title: 'unknown', description: 'From an unknown source', active: true)
+
+# Seed the Message db with a default Message
+Message.create(app_id: '3', content: "Welcome to Messagehub. To post, use curl. No need to refresh! Enjoy!", username: "Nick", active: true)
