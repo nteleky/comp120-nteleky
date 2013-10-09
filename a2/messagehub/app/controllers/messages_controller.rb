@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
   def index
-  	@messages = Message.all.includes(:app)
+     @messages = Message.where("created_at > ?", Time.at(params[:after].to_i + 1)).order('created_at DESC')
+  	
   end
 
   def create

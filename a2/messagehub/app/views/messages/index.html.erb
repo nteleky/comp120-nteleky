@@ -1,7 +1,19 @@
-<% @messages.each do |m| %>
-	<div id="message" class="well">
-		<div id="content"><%= m.content %></div>
-		<div id="info"><span><%= m.username %>   </span>
-		<%= time_ago_in_words(m.created_at) %> ago</div>
-	</div>
-<% end %>
+<div id="messages" >
+		<%= render @messages %>
+</div>
+
+<script>
+	$(function() {
+		setTimeout(getNewMessages, 5000);
+	});
+
+	function getNewMessages() {
+		var after = $(".message:first").attr("data-time");
+
+		console.log("polling after: " + after)
+		$.getScript("/messages.js?after=" + after);
+		setTimeout(getNewMessages, 5000);
+
+	}
+
+</script>
