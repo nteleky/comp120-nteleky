@@ -9,8 +9,6 @@
 
 	function getNewMessages() {
 		var after = $(".message:first").attr("data-time");
-
-		console.log("polling after: " + after)
 		$.getScript("/messages.js?after=" + after);
 		setTimeout(getNewMessages, 5000);
 

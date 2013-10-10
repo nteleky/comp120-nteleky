@@ -40,8 +40,7 @@ As per specifications, the application has two models:
   To create a message, use `curl` and connect to the localhost server (`http://127.0.0.1:3000`). 
   An example message:
 
-  ``curl --data 'message[username]=TestUser&message[content]=This is a test message.&message[app_id]=1' 
-  http://127.0.0.1:3000/messages ``
+  ``curl --data 'message[username]=TestUser&message[content]=MessageTest&message[app_id]=1' http://127.0.0.1:3000/messages ``
 
   - - - - - - - - - - - - - - - - - - - - - - -
 
