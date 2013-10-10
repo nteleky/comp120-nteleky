@@ -25,39 +25,42 @@ As per specifications, the application has two models:
 * Message - contains the message content, what app was used to post the message, and the username
  of the person that posted it.
 
- The App table was seeded with several default applications. The Message table is seeded with one 
- default message, welcoming a user and telling them how to post messages.
+The App table was seeded with several default applications. The Message table is seeded with one 
+default message, welcoming a user and telling them how to post messages.
 
- There is one controller, Messages, which controls this app. It has three actions:
+There is one controller, Messages, which controls this app. It has three actions:
   1. index -- displays all active messages in descending format.
   2. show -- displays one message via a specified ID
   3. create -- allows a message to be created via JSON format.
 
-  - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - -
 
-  ##### How To Create A Message #####
+##### How To Create A Message #####
 
-  To create a message, use `curl` and connect to the localhost server (`http://127.0.0.1:3000`). 
-  An example message:
+To create a message, use `curl` and connect to the localhost server (`http://127.0.0.1:3000`). 
+An example message:
 
-  ``curl --data 'message[username]=TestUser&message[content]=MessageTest&message[app_id]=1' http://127.0.0.1:3000/messages ``
+``curl --data 'message[username]=TestUser&message[content]=MessageTest&message[app_id]=1' http://127.0.0.1:3000/messages ``
 
-  - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - -
 
-  This app also displays the time the message was posted in "Time Ago Format" (i.e. English).
-  To accomplish this, a jQuery plugin called [timeago](http://timeago.yarp.com/) was used.
+This app also displays the time the message was posted in "Time Ago Format" (i.e. English).
+To accomplish this, a jQuery plugin called [timeago](http://timeago.yarp.com/) was used.
 
-  - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - -
 
-  In order to poll the database to update the messages posted without refreshing the page, jQuery was
-  used. The application uses jQuery to get the 'created_at' attribute for the last post, polls the database every 5 seconds,
-  and only posts messages that were created after the last message was added to the DOM.
+In order to poll the database to update the messages posted without refreshing the page, jQuery was
+used. The application uses jQuery to get the 'created_at' attribute for the last post, polls the database every 5 seconds,
+and only posts messages that were created after the last message was added to the DOM.
 
-  As a reference to learn how to do this, I used [RailsCast #229](http://railscasts.com/episodes/229-polling-for-changes)
+As a reference to learn how to do this, I used [RailsCast #229](http://railscasts.com/episodes/229-polling-for-changes)
 
-  - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - -
 
-  All parts of this assignment have been implemented correctly.
+All parts of this assignment have been implemented correctly.
 
+To view on heroku, go to the following link:
 
-This assignment took me 10 hours to complete.
+http://fast-reef-2117.herokuapp.com/
+
+This assignment took me 13 hours to complete.

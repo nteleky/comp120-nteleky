@@ -60,5 +60,8 @@ As per specifications, the application has two models:
 
   All parts of this assignment have been implemented correctly.
 
+To view on heroku, go to the following link:
 
-This assignment took me 10 hours to complete.
+http://fast-reef-2117.herokuapp.com/
+
+This assignment took me 13 hours to complete.
