@@ -1,0 +1,49 @@
+<%= form_for(@round) do |f| %>
+  <% if @round.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@round.errors.count, "error") %> prohibited this round from being saved:</h2>
+
+      <ul>
+      <% @round.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :POpening %><br>
+    <%= f.number_field :POpening %>
+  </div>
+  <div class="field">
+    <%= f.label :DOpening %><br>
+    <%= f.number_field :DOpening %>
+  </div>
+  <div class="field">
+    <%= f.label :PDirectAtt %><br>
+    <%= f.number_field :PDirectAtt %>
+  </div>
+  <div class="field">
+    <%= f.label :PDirectWit %><br>
+    <%= f.number_field :PDirectWit %>
+  </div>
+  <div class="field">
+    <%= f.label :DCrossWit %><br>
+    <%= f.number_field :DCrossWit %>
+  </div>
+  <div class="field">
+    <%= f.label :PCrossWit %><br>
+    <%= f.number_field :PCrossWit %>
+  </div>
+  <div class="field">
+    <%= f.label :PClose %><br>
+    <%= f.number_field :PClose %>
+  </div>
+  <div class="field">
+    <%= f.label :DClose %><br>
+    <%= f.number_field :DClose %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

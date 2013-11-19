@@ -1,0 +1,41 @@
+<h1>Listing rounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Popening</th>
+      <th>Dopening</th>
+      <th>Pdirectatt</th>
+      <th>Pdirectwit</th>
+      <th>Dcrosswit</th>
+      <th>Pcrosswit</th>
+      <th>Pclose</th>
+      <th>Dclose</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rounds.each do |round| %>
+      <tr>
+        <td><%= round.POpening %></td>
+        <td><%= round.DOpening %></td>
+        <td><%= round.PDirectAtt %></td>
+        <td><%= round.PDirectWit %></td>
+        <td><%= round.DCrossWit %></td>
+        <td><%= round.PCrossWit %></td>
+        <td><%= round.PClose %></td>
+        <td><%= round.DClose %></td>
+        <td><%= link_to 'Show', round %></td>
+        <td><%= link_to 'Edit', edit_round_path(round) %></td>
+        <td><%= link_to 'Destroy', round, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Round', new_round_path %>

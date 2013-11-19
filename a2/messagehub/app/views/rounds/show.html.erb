@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Popening:</strong>
+  <%= @round.POpening %>
+</p>
+
+<p>
+  <strong>Dopening:</strong>
+  <%= @round.DOpening %>
+</p>
+
+<p>
+  <strong>Pdirectatt:</strong>
+  <%= @round.PDirectAtt %>
+</p>
+
+<p>
+  <strong>Pdirectwit:</strong>
+  <%= @round.PDirectWit %>
+</p>
+
+<p>
+  <strong>Dcrosswit:</strong>
+  <%= @round.DCrossWit %>
+</p>
+
+<p>
+  <strong>Pcrosswit:</strong>
+  <%= @round.PCrossWit %>
+</p>
+
+<p>
+  <strong>Pclose:</strong>
+  <%= @round.PClose %>
+</p>
+
+<p>
+  <strong>Dclose:</strong>
+  <%= @round.DClose %>
+</p>
+
+<%= link_to 'Edit', edit_round_path(@round) %> |
+<%= link_to 'Back', rounds_path %>
