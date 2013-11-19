@@ -12,7 +12,10 @@
 
     @property (weak, nonatomic) IBOutlet UITextField *username;
     @property (weak, nonatomic) IBOutlet UITextField *message;
-
+    @property (weak, nonatomic) IBOutlet UITableView *tableView;
+    @property (strong, nonatomic) NSMutableArray *jsonArray;
+    @property (strong, nonatomic) NSMutableArray *usernameArray;
+    @property (strong, nonatomic) NSMutableArray *contentArray;
 
     - (IBAction)postMessage:(id)sender;
     - (IBAction)showFailAlert:(id)sender;
@@ -23,14 +26,15 @@
 
 @implementation ViewController
 
-NSMutableArray *jsonArray;
-NSMutableArray *usernameArray;
-NSMutableArray *contentArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _usernameArray = [[NSMutableArray alloc] init];
+    _contentArray = [[NSMutableArray alloc] init];
+    _jsonArray = [[NSMutableArray alloc] init];
     [self loadMessages];
+    self.tableView.dataSource = self;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -120,21 +124,39 @@ NSMutableArray *contentArray;
     id myJSON = [NSJSONSerialization JSONObjectWithData:myData options:NSJSONReadingMutableContainers error:nil];
     
     // typecast an array and list its contents
-    jsonArray = (NSMutableArray *)myJSON;
-    contentArray = [[NSMutableArray alloc] init];
-    usernameArray = [[NSMutableArray alloc] init];
+    _jsonArray = (NSMutableArray *)myJSON;
     // take a look at all elements in the array
-    for (id message in jsonArray) {
+    for (id message in _jsonArray) {
         // NSLog(@"Element: %@", [element description]);
         NSString *content = [message objectForKey:@"content"];
-        //[contentArray addObject:content];
+        //[_contentArray addObject:content];
         NSString *username = [message objectForKey:@"username"];
-        //[usernameArray addObject:username];
+        [_usernameArray addObject:username];
         
         //TEST TO SHOW PROPER JSON PARSING:
         NSLog(@"%@: %@", username, content);
     }
 }
+
+
+//Mandatory for UI View stuff
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.jsonArray count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString *cellIdentifier = @"message_cell";
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString *username = [self.jsonArray objectAtIndex:indexPath.row];
+
+    [cell.textLabel setText:username];
+    [cell.detailTextLabel setText:@"via Codigator"];
+    return cell;
+}
+
 
 
 
